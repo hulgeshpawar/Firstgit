@@ -26,3 +26,11 @@ hader.style.borderBottom='solid 3px black   '
 var header = document.getElementsByClassName('title') ;
 header[0].style.fontWeight='bold';
 header[0].style.color= 'green';
+
+var items = document.getElementsByClassName('list-group-item');
+items[2].style.backgroundColor= 'green';
+console.log(items);
+
+for(i=0;i<items.length;i++){
+    items[i].style.fontWeight = 'bold';
+}
