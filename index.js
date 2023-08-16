@@ -36,9 +36,17 @@
 //}
 
 
-var li = document.getElementsByTagName('li');
+//var li = document.getElementsByTagName('li');
 
-li[1].textContent = 'Hello2';
-for (i=0;i<=li.length;i++){
-    li[i].style.background = 'grey';
-}
+//li[1].textContent = 'Hello2';
+//for (i=0;i<=li.length;i++){
+//    li[i].style.background = 'grey';
+//}
+
+var secondItems = document.querySelector('.list-group-item:nth-child(2)');
+
+secondItems.style.background = 'green';
+
+var thirdItems = document.querySelector('.list-group-item:nth-child(3)');
+
+thirdItems.style.visibility = 'hidden';
