@@ -43,10 +43,17 @@
 //    li[i].style.background = 'grey';
 //}
 
-var secondItems = document.querySelector('.list-group-item:nth-child(2)');
+//var secondItems = document.querySelector('.list-group-item:nth-child(2)');
+//secondItems.style.background = 'green';
 
-secondItems.style.background = 'green';
+//var thirdItems = document.querySelector('.list-group-item:nth-child(3)');
+//thirdItems.style.visibility = 'hidden';
 
-var thirdItems = document.querySelector('.list-group-item:nth-child(3)');
+var Secondli = document.querySelectorAll('li');
+Secondli[1].style.color = 'green';
 
-thirdItems.style.visibility = 'hidden';
+var odd = document.querySelectorAll('li:nth-child(odd)');
+
+for (var i=0; i<odd.length;i++){
+    odd[i].style.backgroundColor = 'green';
+}
