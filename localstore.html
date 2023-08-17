@@ -1,0 +1,16 @@
+
+    <body>
+        <h1>Lets store the users in the right format</h1>
+
+    </body>
+    <script>
+            let obj={name:'Karan',Age:26};
+
+
+            let my_obj = JSON.stringify(obj);
+
+            localStorage.setItem('Myobj',my_obj);
+
+            let my_objdes = JSON.parse(localStorage.getItem('Myobj')); 
+            console.log( my_objdes);
+            </script>
