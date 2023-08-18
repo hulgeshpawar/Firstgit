@@ -31,18 +31,39 @@
                 // Print on screen
 
                 var li = document.createElement('li');
+                var inp = document.createElement('input');
 
+ 
+                // Delete from local stroage
+                var del = document.createElement('input')
+                del.type = 'button'
+                del.value = 'delete'
+                del.appendChild(document.createTextNode('Delete'));
+
+                del.onclick= function (e){
+                    localStorage.removeItem(emailiD);
+                    addli.removeChild(li);
+
+                }
+
+    
+ 
                 li.className = 'list-group-item';
                 li.appendChild(document.createTextNode(fname));
                 li.appendChild(document.createTextNode('-'));
                 li.appendChild(document.createTextNode(emailiD));
                 li.appendChild(document.createTextNode('-'));
                 li.appendChild(document.createTextNode(moblie));
+                li.appendChild(del);
+                addli.appendChild(li)
+               
                 
                 var addEle = document.getElementById('addli') ;
 
                 addEle.appendChild(li);
-                console.log(addEle);
+                //console.log(addEle);
+
+                
 
             }
         </script>
