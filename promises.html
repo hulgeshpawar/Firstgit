@@ -1,0 +1,87 @@
+<html>
+<body>
+<script>
+console.log('Peeson1 :Enter with Ticket')
+console.log('Peeson2 :Enter with Ticket')
+
+const premovie = async()=>{
+    const wifebringthetickets = new Promise((resolve,reject)=>{setTimeout(()=> resolve('ticket'),3000)})
+    const getpopcorn = new Promise((resolve,reject)=>resolve('popcorn')) 
+    const addbutter = new Promise((resolve,reject)=>resolve('butter'))
+    const getcolddrink = new Promise((resolve,reject)=>resolve('coke'))
+
+    let ticket = await wifebringthetickets
+    console.log(`wife: I have ${ticket}`)
+    console.log('Husband: we should go in.')
+    console.log('Wife:I want popcorn')
+
+    let popcorn = await getpopcorn
+    console.log(`Husband:Here your ${popcorn}`)
+    console.log('Wife:I want some Butter')
+
+    let butter =await addbutter
+    console.log(`Husband:Here ${butter} to add`)
+    console.log('Wife: Can i also have diet coke')
+    console.log(`Husband:Do you need anything else say now otherwise we get late for the movie`)
+    console.log('Wife: No just the Coke,Thank you')
+
+    let coke  = await getcolddrink
+    console.log(`Husband:Here ${coke} ,Anything else`)
+    console.log('Wife:No this is enough,hurry up! we are getting late for movie')
+    console.log(`Husband: Thanks for leeting me know`)
+
+    return ticket
+}
+
+
+premovie().then((m)=> console.log(`Person3:Enter with ${m}`))
+
+console.log('Peeson4 :Enter with Ticket')
+console.log('Peeson5 : Enter with Ticket')
+
+async function postArry(){
+    let removedEle;
+    const blog =[];
+    const createPost = new Promise ((resolve,reject)=>{
+            blog.push({title:'Post0'})
+            resolve()
+
+    })
+    const createPost1 = new Promise ((resolve,reject)=>{
+            blog.push({title:'Post1'})
+            resolve()
+    })
+    const createPost2 = new Promise ((resolve,reject)=>{
+            blog.push({title:'Post2'})
+            resolve()
+    })
+    const createPost3 = new Promise ((resolve,reject)=>{
+            blog.push({title:'Post3'})
+            resolve()
+    })
+
+    const deletePost = new Promise((resolve,reject)=>{
+        if (blog.length >0){
+        removedEle=blog.pop()
+         resolve(removedEle)
+        }else{ 
+            reject('Array is Empty')
+        }
+    })
+    await createPost;
+    await createPost1;
+    await createPost2;
+    await createPost3;
+    
+    let popEle= await deletePost
+    console.log(`Last element of blog array is ${popEle.title}`)
+
+    console.log('blog array after deleting last element',blog)
+
+
+};
+setTimeout(()=>{postArry()},3000);
+
+</script>
+</body>
+</html>
