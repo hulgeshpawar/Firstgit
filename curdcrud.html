@@ -7,7 +7,7 @@
         integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
 </head>
 
-<body align="center">
+<body>
     <form onsubmit="saveToCrudCrud(event)">
         <label>Frist Name</label><br>
         <input type="text" name="firstName" required /><br><br>
@@ -33,9 +33,10 @@
                 digitno
             };
             //console.log(Obj)
-            axios.post("https://crudcrud.com/api/ceda165904c44d0dab843346b091bc4c/appi", Obj)
+            axios.post("https://crudcrud.com/api/a9a52277684244638bd31fdcd1c16da4/appi", Obj)
                 .then((res) => { showItemOnScreen(res.data); })
                 .catch(error => { console.log(error); });
+                location.reload()
         }
 
         function displayOnScreen(object) {
@@ -43,9 +44,30 @@
             childElement = document.createElement("li");
             childElement.textContent = object.name + " - " + object.email + " - " + object.digitno;
 
+            deletebutton = document.createElement('input');
+            deletebutton.type = 'button';
+            deletebutton.value =  'Delete';
+            deletebutton.onclick= () => {
+                axios
+                .delete(`https://crudcrud.com/api/a9a52277684244638bd31fdcd1c16da4/appi/${object._id}`,{
+                                       
+                })
+                .then((res)=>{
+                    location.reload()
+                    
+                })
+                .catch((error)=>{
+                    console.error('Data Cannot be Deleted'+error)
+                })
+
+
+            }
+
+            
+
             
             parentElement.appendChild(childElement);
-           // parentElement.appendChild(editbutton);
+            parentElement.appendChild(deletebutton);
 
 
         }
@@ -54,7 +76,7 @@
 
         window.addEventListener("DOMContentLoaded", () => {
             axios
-                .get("https://crudcrud.com/api/ceda165904c44d0dab843346b091bc4c/appi")
+                .get("https://crudcrud.com/api/a9a52277684244638bd31fdcd1c16da4/appi")
                 .then((response) => {
                     for (i = 0; i < response.data.length; i++) {
                         displayOnScreen(response.data[i]);
